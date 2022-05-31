@@ -35,3 +35,6 @@ SELECT COUNT(name) AS Animals_never_tried_to_scape FROM animals WHERE escape_att
 SELECT AVG(weight_kg) AS Average_weight FROM animals;
 
 SELECT neutered, MAX(escape_attempts) FROM animals GROUP BY neutered; 
+
+SELECT species, MIN(weight_kg), MAX(weight_kg) FROM animals GROUP BY species;
+
