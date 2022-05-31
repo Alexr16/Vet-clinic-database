@@ -31,3 +31,5 @@ COMMIT;
 SELECT COUNT(name) AS Animals FROM animals;
 
 SELECT COUNT(name) AS Animals_never_tried_to_scape FROM animals WHERE escape_attempts = 0;
+
+SELECT AVG(weight_kg) AS Average_weight FROM animals;
