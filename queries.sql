@@ -29,3 +29,5 @@ UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
 COMMIT;
 
 SELECT COUNT(name) AS Animals FROM animals;
+
+SELECT COUNT(name) AS Animals_never_tried_to_scape FROM animals WHERE escape_attempts = 0;
