@@ -22,3 +22,4 @@ CREATE TABLE species (
     PRIMARY KEY (id)
 );
 
+ALTER TABLE animals DROP COLUMN species;
