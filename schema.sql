@@ -6,4 +6,12 @@ CREATE TABLE animals (
     neutered BOOLEAN,
     weight_kg DECIMAL,
     species varchar(100),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE owners (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    full_name varchar(240);
+    age INT,
+    PRIMARY KEY (id)
 );
