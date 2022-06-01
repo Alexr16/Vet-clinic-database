@@ -49,3 +49,7 @@ SELECT full_name, animals.name, owner_id FROM owners LEFT JOIN animals ON owner_
 SELECT COUNT(animals) as Animals, species_id, species.name FROM animals INNER JOIN species ON species_id = species.id GROUP BY species_id, species.name;
 
 SELECT animals.name, species_id, species.name, owner_id, full_name FROM animals INNER JOIN species ON species_id = species.id INNER JOIN owners ON owner_id = owners.id WHERE owner_id = 2 AND species_id = 2;
+
+SELECT animals.name, species_id, escape_attempts, owner_id, full_name FROM animals INNER JOIN owners ON owner_id = owners.id WHERE owner_id = 5 AND escape_attempts = 0;
+
+SELECT owner_id, full_name, COUNT(animals) AS Number_of_animals FROM animals INNER JOIN owners ON owner_id = owners.id GROUP BY owner_id, full_name ORDER BY Number_of_animals desc;
