@@ -86,3 +86,13 @@ SELECT vet_id, vets.name, animal_id, animals.name, date_of_visit FROM visits
     INNER JOIN vets ON vet_id = vets.id
     WHERE vet_id = 2 ORDER BY date_of_visit ASC LIMIT 1;
 
+-- Details for most recent visit: animal information, vet information, and date of visit.
+SELECT animal_id, animals.name as animal_name, animals.species_id, species.name as species, date_of_birth,
+    escape_attempts, neutered, weight_kg, visits.vet_id, vets.name as vet_name, age, date_of_graduation, species.id as specialization, date_of_visit
+    FROM visits
+    INNER JOIN animals ON animal_id = animals.id
+    INNER JOIN species ON animals.species_id = species.id
+    INNER JOIN vets ON visits.vet_id = vets.id
+    INNER JOIN specializations ON species.id = specializations.species_id
+    ORDER BY date_of_visit DESC LIMIT 1;
+
