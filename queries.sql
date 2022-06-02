@@ -53,3 +53,8 @@ SELECT animals.name, species_id, species.name, owner_id, full_name FROM animals 
 SELECT animals.name, species_id, escape_attempts, owner_id, full_name FROM animals INNER JOIN owners ON owner_id = owners.id WHERE owner_id = 5 AND escape_attempts = 0;
 
 SELECT owner_id, full_name, COUNT(animals) AS Number_of_animals FROM animals INNER JOIN owners ON owner_id = owners.id GROUP BY owner_id, full_name ORDER BY Number_of_animals desc;
+
+-- Who was the last animal seen by William Tatcher?
+SELECT animals.name, animal_id, vet_id, vets.name, date_of_visit FROM vets INNER JOIN visits ON vet_id = vets.id INNER JOIN animals ON animal_id = animals.id WHERE vet_id = 1 ORDER BY date_of_visit desc
+    LIMIT 1;
+
