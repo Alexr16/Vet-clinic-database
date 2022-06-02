@@ -58,3 +58,8 @@ SELECT owner_id, full_name, COUNT(animals) AS Number_of_animals FROM animals INN
 SELECT animals.name, animal_id, vet_id, vets.name, date_of_visit FROM vets INNER JOIN visits ON vet_id = vets.id INNER JOIN animals ON animal_id = animals.id WHERE vet_id = 1 ORDER BY date_of_visit desc
     LIMIT 1;
 
+-- How many different animals did Stephanie Mendez see?
+SELECT COUNT(*) as number_of_animals, vet_id, vets.name FROM vets
+    INNER JOIN visits ON vet_id = vets.id
+    WHERE vet_id = 3 GROUP BY vets.name, vet_id;
+
