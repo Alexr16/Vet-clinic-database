@@ -104,3 +104,10 @@ SELECT COUNT(*) as number_of_visits FROM visits
     LEFT JOIN specializations ON vets.id = specializations.vet_id
     WHERE specializations.species_id != animals.species_id;
 
+-- What specialty should Maisy Smith consider getting? Look for the species she gets the most.
+SELECT vet_id, vets.name as vet_name, animals.species_id, species.name as species, COUNT(animal_id) as number_of_visits FROM visits
+    INNER JOIN animals ON animal_id = animals.id
+    INNER JOIN vets ON vet_id = vets.id
+    INNER JOIN species ON animals.species_id = species.id
+    WHERE vet_id = 2
+    GROUP BY vet_id, vets.name, animals.species_id, species.name;
