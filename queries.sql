@@ -80,3 +80,9 @@ SELECT animal_id, animals.name, COUNT(*) as number_of_visits FROM visits
     GROUP BY animal_id, animals.name
     ORDER BY number_of_visits DESC LIMIT 1;
 
+-- Who was Maisy Smith's first visit?
+SELECT vet_id, vets.name, animal_id, animals.name, date_of_visit FROM visits
+    INNER JOIN animals ON animal_id = animals.id
+    INNER JOIN vets ON vet_id = vets.id
+    WHERE vet_id = 2 ORDER BY date_of_visit ASC LIMIT 1;
+
