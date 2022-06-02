@@ -63,3 +63,8 @@ SELECT COUNT(*) as number_of_animals, vet_id, vets.name FROM vets
     INNER JOIN visits ON vet_id = vets.id
     WHERE vet_id = 3 GROUP BY vets.name, vet_id;
 
+-- List all vets and their specialties, including vets with no specialties.
+SELECt vet_id, vets.name, species_id, species.name FROM vets
+    LEFT JOIN specializations ON vet_id= vets.id
+    LEFT JOIN species ON species_id = species.id;
+
