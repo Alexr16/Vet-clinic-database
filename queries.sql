@@ -74,3 +74,9 @@ SELECT animal_id, animals.name, vet_id, vets.name, date_of_visit FROM vets
     INNER JOIN animals ON animal_id = animals.id
     WHERE vet_id = 3 AND date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
 
+-- What animal has the most visits to vets?
+SELECT animal_id, animals.name, COUNT(*) as number_of_visits FROM visits
+    INNER JOIN animals ON animal_id = animals.id
+    GROUP BY animal_id, animals.name
+    ORDER BY number_of_visits DESC LIMIT 1;
+
