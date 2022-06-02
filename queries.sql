@@ -96,3 +96,11 @@ SELECT animal_id, animals.name as animal_name, animals.species_id, species.name 
     INNER JOIN specializations ON species.id = specializations.species_id
     ORDER BY date_of_visit DESC LIMIT 1;
 
+-- How many visits were with a vet that did not specialize in that animal's species?
+SELECT COUNT(*) as number_of_visits FROM visits
+    INNER JOIN vets ON visits.vet_id = vets.id
+    INNER JOIN animals ON visits.animal_id = animals.id
+    INNER JOIN species ON animals.species_id = species.id
+    LEFT JOIN specializations ON vets.id = specializations.vet_id
+    WHERE specializations.species_id != animals.species_id;
+
