@@ -38,6 +38,14 @@ CREATE TABLE vets (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE specializations (
+    vet_id INT,
+    species_id INT,
+    CONSTRAINT vet_spe_pk PRIMARY KEY (vet_id, species_id),
+    CONSTRAINT fk_vet FOREIGN KEY (vet_id) REFERENCES vets(id) ON DELETE CASCADE,
+    CONSTRAINT fk_speciess FOREIGN KEY (species_id) REFERENCES species(id) ON DELETE CASCADE
+);
+
 
 
 
