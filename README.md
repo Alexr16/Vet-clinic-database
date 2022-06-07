@@ -4,6 +4,10 @@
 
 > In this project I used a relational database to create the initial data structure for a vet clinic.
 
+- ## Screenshot
+
+<img src="./Schema.JPG">
+
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
